@@ -59,6 +59,14 @@ function start() {
 
 // Reset everything:
 function reset() {
+  clearInterval(interval);
+  interval = null;
+  timer = [0,0,0,0];
+  timerRunning = false;
+
+  testArea.value = "";
+  theTimer.innerHTML = "00:00:00";
+  testWrapper.style.borderColor = "grey";
   console.log("reset button has been pressed!");
 }
 
@@ -66,3 +74,16 @@ function reset() {
 testArea.addEventListener("keypress", start, false);
 testArea.addEventListener("keyup", spellCheck, false);
 resetButton.addEventListener("click", reset, false);
+
+//Of course, if you want to enhance this typing speed tester you can.
+//One thing you can do is add a words per minute count. You can find the calculation for it online,
+//and you can just grab the time that you calculated, and combine it with the number of words in your test,
+//and then you can figure out exactly how fast you're typing.
+
+//You can also count the number of errors the person doing the test makes because every time an error is triggered
+//you can just increment a number and then it can display the number of errors
+
+//or you can do something really advanced
+// like add an array of different texts so the tester can switch between different texts to test
+
+// or even add a high score board.
